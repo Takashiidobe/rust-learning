@@ -1,5 +1,8 @@
+pub mod async_trait;
+pub mod futures;
 pub mod httpmock;
 pub mod tokio;
+pub mod tower;
 
 #[cfg(test)]
 mod tests {
