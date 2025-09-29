@@ -4,7 +4,7 @@ mod tests {
     use std::time::Duration;
     use tower::ServiceBuilder;
     use tower::limit::ConcurrencyLimitLayer;
-    use tower_http::{compression::CompressionLayer, cors::CorsLayer, trace::TraceLayer};
+    use tower_http::{compression::CompressionLayer, trace::TraceLayer};
 
     async fn hello() -> &'static str {
         "hello world"
@@ -20,8 +20,8 @@ mod tests {
     }
 
     use axum::body::{self, Body, Bytes};
-    use axum::http::{Method, Request, StatusCode, header};
-    use tower::ServiceExt; // for `oneshot`
+    use axum::http::{Request, StatusCode, header};
+    use tower::ServiceExt;
 
     #[tokio::test]
     async fn test_hello_world() {
