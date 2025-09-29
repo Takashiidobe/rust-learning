@@ -22,6 +22,7 @@ tower-http = { version = "0.6.6", features = ["trace", "cors", "compression-gzip
 [dev-dependencies]
 pretty_assertions = "1.4.1"
 criterion = { version = "0.5", features = ["async_tokio"] }
+faux = "0.1.5"
 
 [[bench]]
 name = "sqlite_bench"

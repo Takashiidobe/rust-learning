@@ -1,5 +1,6 @@
 pub mod async_trait;
 pub mod axum;
+pub mod faux;
 pub mod futures;
 pub mod httpmock;
 pub mod tokio;

@@ -97,7 +97,7 @@ mod tests {
             .service(router);
 
         // First request: occupies the only permit.
-        let mut svc_clone = svc.clone();
+        let svc_clone = svc.clone();
         let fut1 = tokio::spawn(async move {
             svc_clone
                 .oneshot(Request::builder().uri("/hold").body(Body::empty()).unwrap())
