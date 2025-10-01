@@ -18,6 +18,7 @@ httpmock = "0.7.0"
 isahc = "1.7.2"
 predicates = "3.1.3"
 serde = { version = "1.0.227", features = ["derive"] }
+snafu = { version = "0.8.9", features = ["backtrace", "rust_1_81"] }
 sqlx = { version = "0.8.6", features = ["runtime-tokio", "sqlite", "macros", "migrate"] }
 tempfile = "3.22.0"
 thiserror = "2.0.16"
