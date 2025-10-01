@@ -1,10 +1,15 @@
+pub mod anyhow;
 pub mod async_trait;
 pub mod axum;
+pub mod delegate;
+pub mod derive_more;
 pub mod faux;
 pub mod futures;
 pub mod httpmock;
+pub mod thiserror;
 pub mod tokio;
 pub mod tower;
+pub mod ux;
 
 #[cfg(test)]
 mod tests {
