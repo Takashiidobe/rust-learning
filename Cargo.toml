@@ -11,6 +11,7 @@ compression = "0.1.5"
 cors = "0.1.0"
 delegate = "0.13.4"
 derive_more = { version = "2.0.1", features = ["full"] }
+facet = "0.29.1"
 futures = "0.3.31"
 httpmock = "0.7.0"
 isahc = "1.7.2"

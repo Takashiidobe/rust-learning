@@ -3,6 +3,7 @@ pub mod async_trait;
 pub mod axum;
 pub mod delegate;
 pub mod derive_more;
+pub mod facet;
 pub mod faux;
 pub mod futures;
 pub mod httpmock;
