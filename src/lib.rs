@@ -7,10 +7,12 @@ pub mod facet;
 pub mod faux;
 pub mod futures;
 pub mod httpmock;
+pub mod proptest;
 pub mod thiserror;
 pub mod tokio;
 pub mod tower;
 pub mod ux;
+pub mod validator;
 
 #[cfg(test)]
 mod tests {
