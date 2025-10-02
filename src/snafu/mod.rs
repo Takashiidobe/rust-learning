@@ -14,6 +14,7 @@ mod tests {
     }
 
     fn read_file(path: &str) -> Result<File, MyError> {
+        // use context to add information to the error with extra information
         File::open(path).context(OpenFileSnafu {
             path: path.to_string(),
         })
