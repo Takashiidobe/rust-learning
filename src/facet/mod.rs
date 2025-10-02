@@ -1,6 +1,6 @@
 #[cfg(test)]
 mod tests {
-    use facet::{Facet, VTableView};
+    use facet::Facet;
 
     #[derive(Facet, Debug)]
     struct FooBar {

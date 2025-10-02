@@ -12,6 +12,7 @@ mod tests {
 
     // we can use proptest with deriving arbitrary for our own struct
     proptest! {
+        #[allow(clippy::absurd_extreme_comparisons)]
         #[test]
         fn test_color_values(c: Color) {
             prop_assert!(c.r <= u8::MAX);

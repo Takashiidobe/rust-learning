@@ -2088,6 +2088,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "ordered-float"
+version = "5.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "7f4779c6901a562440c3786d08192c6fbda7c1c2060edd10006b05ee35d10f2d"
+dependencies = [
+ "num-traits",
+]
+
+[[package]]
 name = "parking"
 version = "2.2.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2600,8 +2609,10 @@ dependencies = [
  "facet",
  "faux",
  "futures",
+ "http 1.3.1",
  "httpmock",
  "isahc",
+ "ordered-float",
  "predicates",
  "pretty_assertions",
  "proptest",
