@@ -15,7 +15,9 @@ futures = "0.3.31"
 http = "1.3.1"
 httpmock = "0.7.0"
 isahc = "1.7.2"
+itertools = "0.14.0"
 ordered-float = "5.1.0"
+parking_lot = { version = "0.12.4", features = ["arc_lock", "deadlock_detection"] }
 predicates = "3.1.3"
 qcell = "0.5.5"
 serde = { version = "1.0.227", features = ["derive"] }
@@ -37,6 +39,8 @@ criterion = { version = "0.5", features = ["async_tokio"] }
 faux = "0.1.5"
 proptest = "1.8.0"
 proptest-derive = "0.6.0"
+quickcheck_macros = "1.1.0"
+quickcheck = "1.0.3"
 
 [[bench]]
 name = "sqlite_bench"
