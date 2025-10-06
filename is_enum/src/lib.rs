@@ -1,6 +1,6 @@
 use proc_macro::TokenStream;
 use quote::quote;
-use syn::{Data, DeriveInput, Ident, parse_macro_input};
+use syn::{Data, DeriveInput, Ident, ItemFn, parse_macro_input};
 
 #[proc_macro_derive(IsEnum)]
 pub fn derive_enum_is(input: TokenStream) -> TokenStream {
@@ -39,4 +39,47 @@ pub fn derive_enum_is(input: TokenStream) -> TokenStream {
         }
     }
     .into()
+}
+
+#[proc_macro_attribute]
+pub fn log_fn(_attr: TokenStream, item: TokenStream) -> TokenStream {
+    let input = parse_macro_input!(item as ItemFn);
+    let vis = &input.vis;
+    let sig = &input.sig;
+    let name = &sig.ident;
+    let body = &input.block;
+
+    let args: Vec<_> = sig
+        .inputs
+        .iter()
+        .filter_map(|arg| {
+            if let syn::FnArg::Typed(pat_type) = arg {
+                if let syn::Pat::Ident(pat_ident) = &*pat_type.pat {
+                    Some(pat_ident.ident.clone())
+                } else {
+                    None
+                }
+            } else {
+                None
+            }
+        })
+        .collect();
+
+    let fmt = args
+        .iter()
+        .map(|id| format!("{} = {{:?}}", id))
+        .collect::<Vec<_>>()
+        .join(", ");
+
+    let expanded = quote! {
+        #vis #sig {
+            println!(
+                concat!("calling ", stringify!(#name), "(", #fmt, ")"),
+                #(#args),*
+            );
+            #body
+        }
+    };
+
+    expanded.into()
 }

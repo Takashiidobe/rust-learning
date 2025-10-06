@@ -42,7 +42,7 @@ mod tests {
         assert_eq!(function(), 0);
     }
 
-    use is_enum::IsEnum;
+    use is_enum::{IsEnum, log_fn};
 
     #[derive(IsEnum)]
     enum Fruit {
@@ -52,7 +52,7 @@ mod tests {
     }
 
     #[test]
-    fn main() {
+    fn test_is_enum() {
         let f = Fruit::Pear;
         assert!(f.is_pear());
         assert!(!f.is_banana());
@@ -67,5 +67,15 @@ mod tests {
         assert!(!f.is_pear());
         assert!(f.is_banana());
         assert!(!f.is_apple());
+    }
+
+    #[log_fn]
+    fn add(x: i32, y: i32) -> i32 {
+        x + y
+    }
+
+    #[test]
+    fn test_add() {
+        assert_eq!(add(2, 3), 5);
     }
 }
