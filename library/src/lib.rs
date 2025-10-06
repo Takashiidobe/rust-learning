@@ -1,6 +1,7 @@
 pub mod anyhow;
 pub mod async_trait;
 pub mod axum;
+pub mod ctor;
 pub mod delegate;
 pub mod derive_more;
 pub mod errors;
@@ -17,6 +18,7 @@ pub mod qcell;
 pub mod snafu;
 pub mod sqlx;
 pub mod thiserror;
+pub mod thread_local;
 pub mod tokio;
 pub mod tower;
 pub mod typeshare;
@@ -38,5 +40,32 @@ mod tests {
         // next transmute from *const() to the fn pointer.
         let function = unsafe { transmute::<*const (), fn() -> i32>(pointer) };
         assert_eq!(function(), 0);
+    }
+
+    use is_enum::IsEnum;
+
+    #[derive(IsEnum)]
+    enum Fruit {
+        Apple,
+        Banana,
+        Pear,
+    }
+
+    #[test]
+    fn main() {
+        let f = Fruit::Pear;
+        assert!(f.is_pear());
+        assert!(!f.is_banana());
+        assert!(!f.is_apple());
+
+        let f = Fruit::Apple;
+        assert!(!f.is_pear());
+        assert!(!f.is_banana());
+        assert!(f.is_apple());
+
+        let f = Fruit::Banana;
+        assert!(!f.is_pear());
+        assert!(f.is_banana());
+        assert!(!f.is_apple());
     }
 }

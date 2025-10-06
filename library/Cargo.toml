@@ -1,0 +1,47 @@
+[package]
+name = "rust-learning"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+anyhow = "1.0.100"
+async-trait = "0.1.89"
+axum = "0.8.4"
+compression = "0.1.5"
+ctor = "0.5.0"
+delegate = "0.13.4"
+derive_more = { version = "2.0.1", features = ["full"] }
+facet = "0.29.1"
+futures = "0.3.31"
+http = "1.3.1"
+httpmock = "0.7.0"
+isahc = "1.7.2"
+itertools = "0.14.0"
+ordered-float = "5.1.0"
+parking_lot = { version = "0.12.4", features = ["arc_lock", "deadlock_detection"] }
+predicates = "3.1.3"
+qcell = "0.5.5"
+serde = { version = "1.0.227", features = ["derive"] }
+snafu = { version = "0.8.9", features = ["backtrace", "rust_1_81"] }
+sqlx = { version = "0.8.6", features = ["runtime-tokio", "sqlite", "macros", "migrate"] }
+thiserror = "2.0.16"
+thread_local = "1.1.9"
+tokio = { version = "1.47.1", features = ["full", "test-util"] }
+tokio-stream = "0.1.17"
+tower = { version = "0.5.2", features = ["util", "timeout", "limit"] }
+tower-http = { version = "0.6.6", features = ["trace", "cors", "compression-gzip"] }
+typeshare = "1.0.4"
+ux = { version = "0.1.6", features= ["std"] }
+validator = { version = "0.20.0", features = ["derive"] }
+zeroizing-alloc = "0.1.0"
+is_enum = { path = "../is_enum" }
+
+[dev-dependencies]
+pretty_assertions = "1.4.1"
+criterion = { version = "0.5", features = ["async_tokio"] }
+faux = "0.1.5"
+proptest = "1.8.0"
+proptest-derive = "0.6.0"
+quickcheck_macros = "1.1.0"
+quickcheck = "1.0.3"
+
